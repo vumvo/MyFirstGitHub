@@ -1,0 +1,21 @@
+**** Settings ****
+Resource    Global${/}GlobalResource.txt
+Library     pages.Login
+Library     pages.Common
+Library     lib.General
+Suite Setup         Close All Browsers
+Suite Teardown      Close Browser
+
+*** Variables ***
+
+*** Test Cases ****
+Invalid Log-in Test Case
+     Import Library       lib.ExtendedExcelLibrary    /Data/Excel/InvalidLogin.xls     Sheet1    WITH NAME   DataTable
+     ${no_rows}           DataTable.Get Row Count
+     Launch Home Page
+     #${version}=    Get Browser Version
+     :FOR   ${index}    IN RANGE    2    ${no_rows}
+     \      Log    ${index}
+     \      Set Variable With Name From Datatable       DataTable     ${index}
+     \      Login With Invalid Credential    ${username}    ${password}    ${is_remember}    ${error_message}
+

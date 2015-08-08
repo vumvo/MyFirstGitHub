@@ -10,6 +10,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from robot.api import logger
 from lib import General as general
 from selenium.webdriver.common import action_chains
+from robot.libraries.OperatingSystem import OperatingSystem
+from robot.libraries.BuiltIn import BuiltIn
 
 
 # Limit the methods to be used as keywords by __all__ attribute
@@ -23,10 +25,13 @@ class ExtendedSelenium2Library(Selenium2Library):
     # Specify the version of the Library
     ROBOT_LIBRARY_VERSION = "0.1"
 
-    # def __init__(self):
-    # self.implicit_timeout = self.get_selenium_implicit_wait()
-    # self.timeout = self.get_selenium_timeout()
-    # self.speed = self.get_selenium_speed()
+    def __init__(self):
+        super(ExtendedSelenium2Library,self).__init__()
+        operatingSystem = BuiltIn().get_library_instance('OperatingSystem')
+        # Append the Drive folder to path
+        # logger.info(BuiltIn().get_variable_value('${EXECDIR}'), False, True)
+        operatingSystem.append_to_environment_variable('PATH', general.get_absolute_path('driver'))
+        #logger.info(operatingSystem.get_environment_variable('PATH', 'N/A'),False, True)
 
     @property
     def implicit_timeout(self):
@@ -39,6 +44,19 @@ class ExtendedSelenium2Library(Selenium2Library):
     @property
     def selenium_speed(self):
         return self._speed_in_secs
+
+
+    @property
+    def version(self):
+        """Returns the version of the underlying browser for this instance.
+
+        :Usage:
+         - driver.version
+        """
+        if 'version' in self._current_browser().capabilities:
+            return self._current_browser().capabilities['version']
+        else:
+            raise KeyError('version not specified in session capabilities')
 
     # example
     def hello(self, name):
@@ -253,3 +271,6 @@ class ExtendedSelenium2Library(Selenium2Library):
 
         self._wait_until(timeout, "Locator '" + locator + " is not displayed after timeout '" + str(timeout) + "'",
                          reload_page_and_find_element)
+
+    def get_browser_version(self):
+        return self.version

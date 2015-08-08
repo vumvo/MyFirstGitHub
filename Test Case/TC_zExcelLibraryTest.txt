@@ -30,7 +30,11 @@ Loading all variables from excel file
     ${temp}=             VariableTable2.Get Cell Value By Column Header    ${6}    Variable Value
     @{scalar}=           VariableTable2.Get Row Values    ${2}
     @{scalar}=           VariableTable.Get Row Values    ${2}
-    ${scalar}=           VariableTable.get Sheet Values
+    @{scalar}=           VariableTable.get Sheet Values
+
+    :FOR    ${var}    IN    @{scalar}
+    \       LOG     ${var}
+
 
 
 

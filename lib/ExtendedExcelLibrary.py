@@ -6,8 +6,8 @@ from os import path
 import os
 from robot.api import logger
 
-class ExtendedExcelLibrary(ExcelLibrary):
 
+class ExtendedExcelLibrary(ExcelLibrary):
     ROBOT_LIBRARY_SCOPE = 'TEST SUITE'
 
     def __init__(self, file_name, sheetname=None, useTempDir=False):
@@ -34,10 +34,9 @@ class ExtendedExcelLibrary(ExcelLibrary):
         if sheetname:
             self.sheet = self.wb.sheet_by_index(self.sheetNames.index(sheetname))
 
-
-    def get_cell_value_by_column_header(self,  row_index, header_name):
+    def get_cell_value_by_column_header(self, row_index, header_name):
         column_header_index = self.get_column_header_index(header_name)
-        return self.sheet.cell(row_index-1, column_header_index-1)
+        return self.sheet.cell(row_index - 1, column_header_index - 1)
 
     def get_column_header_index(self, header_name):
         for col_index in range(self.sheet.ncols):
@@ -48,7 +47,7 @@ class ExtendedExcelLibrary(ExcelLibrary):
     def get_row_values(self, row, includeEmptyCells=True):
         row_values = []
         for col_index in range(self.sheet.ncols):
-            value = self.sheet.cell(int(row-1), col_index).value
+            value = self.sheet.cell(int(row - 1), col_index).value
             row_values.append(value)
         return row_values
 
@@ -61,3 +60,9 @@ class ExtendedExcelLibrary(ExcelLibrary):
                 row_values.append(value)
             sheet_values.append(row_values)
         return sheet_values
+
+    def get_row_count(self):
+        return self.sheet.nrows
+
+    def get_column_count(self):
+        return self.sheet.ncols

@@ -9,17 +9,17 @@ ${DATEFORMAT}	     MM/dd/yyyy
 ${TIMEFORMAT}	     HH:mm
 ${IMPLICIT_WAIT}     ${5}
 ${TIMEOUT}           ${30}
-${SPEED}             ${0.5}
-
 
 *** Keywords ***
 Launch Home Page
-	Open Browser	${HOMEPAGE_URL}    ff_profile_dir=${FF_PROFILE}
+	${BROWSER}=     Get Variable Value    ${BROWSER}    ff
+	Open Browser	${HOMEPAGE_URL}    browser=${BROWSER}    ff_profile_dir=${FF_PROFILE}
+	# Open Browser	${HOMEPAGE_URL}    browser=gc
 	Global Configuration
 	Maximize Browser Window
 
-
 Global Configuration
+
 	# Set Selenium Speed	             ${SPEED}
 	Set Selenium Timeout	         ${TIMEOUT}
 	Set Selenium Implicit Wait	     ${IMPLICIT_WAIT}
