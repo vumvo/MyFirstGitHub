@@ -1,0 +1,28 @@
+**** Settings ****
+Resource    Global${/}GlobalResource.tsv
+#Library     lib/ExtendedSelenium2Library.py
+Library     pages${/}Login.py
+Library       pages.Inbox
+Library       pages.Common
+Library       Dialogs
+
+
+*** Variables ***
+${USERNAME}    minhvu4a@yahoo.com
+${PASSWORD}    gachipchip    
+    
+*** Test Cases ****
+User should able to login with valid credential
+   Global Configuration
+   Launch Home Page
+   #Set Selenium Speed             0.5
+   Set Selenium Timeout           5
+   Login with valid credential    ${USERNAME}    ${PASSWORD}    True
+   Wait Until Page Load             15
+   #Select Email By Index          2
+   #Select Email By Sender         Gymglish
+   #Select Email By Subject         Vu, 6 Easy Ways to Keep Your Heart Healthy
+   #Select Email By Category        All
+   #Empty Trash                     ${false}
+   Pause Execution                 W.T.F?
+   Empty Spam                      ${true}

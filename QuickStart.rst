@@ -1,8 +1,8 @@
 .. default-role:: code
 
-=====================================
-  Robot Framework Quick Start Guide
-=====================================
+=================================
+Robot Framework Quick Start Guide
+=================================
 
 Copyright © Nokia Solutions and Networks. Licensed under the
 `Creative Commons Attribution 3.0 Unported`__ license.

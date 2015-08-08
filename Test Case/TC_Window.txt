@@ -1,0 +1,38 @@
+**** Settings ****
+Resource    Global${/}GlobalResource.txt
+#Library     lib/ExtendedSelenium2Library.py
+Library     pages.Login
+Library     pages.Common
+Library     pages.Contact
+
+
+*** Variables ***
+${USERNAME}    minhvu4a@yahoo.com
+${PASSWORD}    gachipchip    
+    
+*** Test Cases ****
+User should able to login with valid credential
+   Launch Home Page
+   Login with valid credential    ${USERNAME}    ${PASSWORD}    True
+   Wait Until Page Load             15
+   Click Toolbar Item               Contacts
+   Select Frame                     abIframeTab
+   Click Element                    xpath=//*[@title='Import Contacts']
+#   Click Element                    xpath=//*[text()='Import']
+#   Select Window Title              Facebook        ${TIMEOUT}         ${1}
+#   Select Window Title              {.*Yahoo Mail.*}        ${TIMEOUT}         ${1}
+#   Select Frame                     abIframeTab
+#   Click Element                    import-gmail-pc
+#   Select Window Title              Sign in - Google Accounts        ${TIMEOUT}         ${1}
+#   Select Window Title              {.*Yahoo Mail.*}        ${TIMEOUT}         ${1}
+#   Select Frame                     abIframeTab
+#   Click Element                    import-outlook-pc
+#   Select Window Title              Sign in to your Microsoft account        ${TIMEOUT}         ${1}
+#   Select Window Title              {.*Yahoo Mail.*}        ${TIMEOUT}         ${1}
+#   Select Frame                     abIframeTab
+#   Click Element                    import-yahoo-pc
+#   Select Window Title              Yahoo - login        ${TIMEOUT}         ${1}
+#   Select Window Title              {.*Yahoo Mail.*}        ${TIMEOUT}         ${1}
+#   Select Frame                     abIframeTab
+   Click Element                    import-file-pc
+   Import Contact By Uploading File     Data\Contact\yahoo_contacts.csv

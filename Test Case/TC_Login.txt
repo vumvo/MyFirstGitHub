@@ -1,0 +1,60 @@
+**** Settings ****
+Resource    Global${/}GlobalResource.txt
+#Library     lib/ExtendedSelenium2Library.py
+Library     pages.Login
+Library     pages.Common
+Library     pages.Inbox
+Suite Teardown    Logout
+
+*** Variables ***
+${USERNAME}    minhvu4a1@yahoo.com
+${PASSWORD}    minhvu4@1
+${USERNAME2}    minhvu4a3@yahoo.com
+${PASSWORD2}    minhvu4@3
+${NAME2}       Vo Vu
+    
+*** Test Cases ****
+User should able to login with valid credential
+   Launch Home Page
+   Login with valid credential    ${USERNAME}    ${PASSWORD}    True
+   Wait Until Element Is Visible        mail-search-btn        ${TIMEOUT}
+   Title should contains          Yahoo Mail
+   #Title should contains          Google Mail
+   #Select Navigation Node        Sent
+   #Select Master Menu Item       News
+   #Select Master Menu Item       Mail
+   #Click Toolbar Item             Contacts
+
+User can compose an new email
+    Compose Email
+    Add Recipients                ${USERNAME2}
+    Add Content                   ${CURRENT_TIME}    This is test email
+    Send Email
+
+Email can send to the correct recipient
+    Sleep                          ${TIMEOUT-20}     Sleep 10s to make sure incoming mail
+    Launch Home Page
+    Login with valid credential    ${USERNAME2}    ${PASSWORD2}    False
+    Wait Until Element Is Visible        mail-search-btn        ${TIMEOUT}
+    Refresh Page Until Email By Subject Exist    ${CURRENT_TIME}        ${TIMEOUT*10}
+    Open Email By Subject          ${CURRENT_TIME}
+    Verify Email Content           ${NAME2}      This is test email
+    Select Navigation Node        Inbox
+    Select Email By Subject       ${CURRENT_TIME}
+    Delete Selected Email
+    Logout
+    Close Browser
+
+Sent email is displayed in the Sent folder
+    Switch Browser                 1
+    ${CurrentTitle}=              Get Title
+    LOG                           ${CurrentTitle}
+    Unselect Frame
+    Select Navigation Node        Sent
+    Select Email By Subject       ${CURRENT_TIME}
+    Delete Selected Email
+
+
+
+
+

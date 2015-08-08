@@ -1,0 +1,15 @@
+**** Settings ****
+Resource    Global${/}GlobalResource.txt
+#Library     lib/ExtendedSelenium2Library.py
+#Library     pages.Login
+#Library     pages.Common
+Library     pages.Contact
+
+
+*** Variables ***
+${USERNAME}    minhvu4a@yahoo.com
+${PASSWORD}    gachipchip    
+    
+*** Test Cases ****
+User should able to login with valid credential
+   import contact by uploading file       Data${/}Contact${/}yahoo_contacts.csv

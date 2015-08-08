@@ -1,0 +1,11 @@
+"* Setting *"	"* Value *"	"* Value *"	"* Value *"	"* Value *"	"* Value *"
+Library	Selenium2Library				
+Library	OperatingSystem	
+					
+"* Variable *"	"* Value *"	"* Value *"	"* Value *"	"* Value *"	"* Value *"
+${HOMEPAGE_URL}	https://www.google.com.vn/
+${DATEFORMAT}	MM/dd/yyyy
+${TIMEFORMAT}	HH:mm			
+					
+					
+"* Keyword *"	"* Action *"	"* Argument *"	"* Argument *"	"* Argument *"	"* Argument *"

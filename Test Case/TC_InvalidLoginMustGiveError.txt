@@ -1,0 +1,15 @@
+**** Settings ****
+Resource    Global${/}GlobalResource.txt
+Library     pages.Login
+Library     pages.Common
+Suite Setup         Launch Home Page
+Suite Teardown      Close Browser
+Test Template       Login With Invalid Credential
+
+*** Variables ***
+
+*** Test Cases ****
+Invalid Username     minhvu42@yahoo.com        gachipchip        ${false}    Invalid ID or password.${\n}Please try again using your full Yahoo ID.
+Invalid Password     minhvu4a@yahoo.com        chipchipga        ${false}    Invalid ID or password.${\n}Please try again using your full Yahoo ID.
+Invalid Username and Password       minhvu42@yahoo.com        chipchipga        ${false}    Invalid ID or password.${\n}Please try again using your full Yahoo ID.
+

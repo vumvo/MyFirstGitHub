@@ -1,0 +1,38 @@
+**** Settings ****
+Resource    Global${/}GlobalResource.txt
+#Library     lib/ExtendedSelenium2Library.py
+#Library     pages.Login
+#Library     pages.Common
+#Library     pages.Inbox
+#Suite Teardown    Logout
+Library     lib.General
+
+*** Variables ***
+${USERNAME}    minhvu4a1@yahoo.com
+${PASSWORD}    minhvu4@1
+${USERNAME2}    minhvu4a3@yahoo.com
+${PASSWORD2}    minhvu4@3
+${NAME2}       Vo Vu
+    
+*** Test Cases ****
+Loading all variables from excel file
+    Import Library       lib.ExtendedExcelLibrary    /Data/Excel/ExcelLibraryTest.xls     Sheet1    WITH NAME   VariableTable
+    ${temp}=             VariableTable.Get Cell Value By Column Header     ${2}    Variable Value
+    Import Library       lib.ExtendedExcelLibrary    /Data/Excel/ExcelLibraryTest2.xls     Sheet1    WITH NAME   VariableTable2
+    ${temp}=             VariableTable2.Get Cell Value By Column Header    ${2}    Variable Value
+    ${temp}=             VariableTable.Get Cell Value By Column Header     ${3}    Variable Value
+    ${temp}=             VariableTable2.Get Cell Value By Column Header    ${3}    Variable Value
+    ${temp}=             VariableTable.Get Cell Value By Column Header     ${4}    Variable Value
+    ${temp}=             VariableTable2.Get Cell Value By Column Header    ${4}    Variable Value
+    ${temp}=             VariableTable.Get Cell Value By Column Header     ${5}    Variable Value
+    ${temp}=             VariableTable2.Get Cell Value By Column Header    ${5}    Variable Value
+    ${temp}=             VariableTable.Get Cell Value By Column Header     ${6}    Variable Value
+    ${temp}=             VariableTable2.Get Cell Value By Column Header    ${6}    Variable Value
+    @{scalar}=           VariableTable2.Get Row Values    ${2}
+    @{scalar}=           VariableTable.Get Row Values    ${2}
+    ${scalar}=           VariableTable.get Sheet Values
+
+
+
+
+

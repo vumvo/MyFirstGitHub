@@ -1,0 +1,31 @@
+*** Settings ***
+Library	    OperatingSystem
+Library     lib.ExtendedSelenium2Library     WITH NAME    selenium2Library
+Variables	Global${/}GlobalVariables.py
+
+*** Variables ***
+${HOMEPAGE_URL}	     https://mail.yahoo.com
+${DATEFORMAT}	     MM/dd/yyyy
+${TIMEFORMAT}	     HH:mm
+${IMPLICIT_WAIT}     ${5}
+${TIMEOUT}           ${30}
+${SPEED}             ${0.5}
+
+
+*** Keywords ***
+Launch Home Page
+	Open Browser	${HOMEPAGE_URL}    ff_profile_dir=${FF_PROFILE}
+	Global Configuration
+	Maximize Browser Window
+
+
+Global Configuration
+	# Set Selenium Speed	             ${SPEED}
+	Set Selenium Timeout	         ${TIMEOUT}
+	Set Selenium Implicit Wait	     ${IMPLICIT_WAIT}
+	${selenium_timeout}=             Get Selenium Timeout
+	Log                              ${selenium_timeout}
+	${selenium_implicit}=            Get Selenium Implicit Wait
+	Log                              ${selenium_implicit}
+	${selenium_speed}=               Get Selenium Speed
+	Log                              ${selenium_speed}

@@ -1,0 +1,6 @@
+mail.yahoo.com:HSTS	0	16648	1454005418552,1,0
+services.addons.mozilla.org:HSTS	0	16648	1469989445795,1,0
+login.yahoo.com:HSTS	0	16648	1454005420133,1,0
+stats.g.doubleclick.net:HSTS	0	16648	1449339799432,1,0
+addons.cdn.mozilla.net:HSTS	0	16648	1469989429116,1,0
+addons.mozilla.org:HSTS	0	16648	1469989445046,1,0
