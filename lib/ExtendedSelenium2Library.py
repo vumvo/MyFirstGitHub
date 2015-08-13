@@ -68,6 +68,12 @@ class ExtendedSelenium2Library(Selenium2Library):
     def get_web_driver_instance(self):
         return  self._current_browser()
 
+    def count_number_windows(self):
+        """
+        Count and return number windows of the current session
+        """
+        return len(self._current_browser().get_window_handles())
+
     def select_window_title(self, title, timeout, index=1):
         """Selects the window found with `locator` as the context of actions.
 
@@ -236,6 +242,7 @@ class ExtendedSelenium2Library(Selenium2Library):
 
     # ******* Private
     def _click_on_element(self, element, click_type='click', use_javascript=False):
+        self.wait_until_element_is_clickable(element, self.implicit_timeout)
         if not use_javascript:
             if click_type == 'click':
                 element.click()
@@ -274,3 +281,13 @@ class ExtendedSelenium2Library(Selenium2Library):
 
     def get_browser_version(self):
         return self.version
+
+    def kill_browser(self):
+        current_browsername = BuiltIn().get_variable_value('${BROWSER}', None)
+        logger.info(current_browsername)
+        if current_browsername=='ff':
+            OperatingSystem().run('taskkill /im firefox.exe*')
+        elif current_browsername=='ie':
+            OperatingSystem().run('taskkill /im iexplore.exe*')
+        elif current_browsername == 'gc':
+            OperatingSystem().run('taskkill /im chrome*')

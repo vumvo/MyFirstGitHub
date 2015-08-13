@@ -16,27 +16,39 @@ ${NAME2}       Vo Vu
     
 *** Test Cases ****
 Loading all variables from excel file
-    Import Library       lib.ExtendedExcelLibrary    /Data/Excel/ExcelLibraryTest.xls     Sheet1    WITH NAME   VariableTable
-    ${temp}=             VariableTable.Get Cell Value By Column Header     ${2}    Variable Value
-    Import Library       lib.ExtendedExcelLibrary    /Data/Excel/ExcelLibraryTest2.xls     Sheet1    WITH NAME   VariableTable2
-    ${temp}=             VariableTable2.Get Cell Value By Column Header    ${2}    Variable Value
-    ${temp}=             VariableTable.Get Cell Value By Column Header     ${3}    Variable Value
-    ${temp}=             VariableTable2.Get Cell Value By Column Header    ${3}    Variable Value
-    ${temp}=             VariableTable.Get Cell Value By Column Header     ${4}    Variable Value
-    ${temp}=             VariableTable2.Get Cell Value By Column Header    ${4}    Variable Value
-    ${temp}=             VariableTable.Get Cell Value By Column Header     ${5}    Variable Value
-    ${temp}=             VariableTable2.Get Cell Value By Column Header    ${5}    Variable Value
-    ${temp}=             VariableTable.Get Cell Value By Column Header     ${6}    Variable Value
-    ${temp}=             VariableTable2.Get Cell Value By Column Header    ${6}    Variable Value
-    @{scalar}=           VariableTable2.Get Row Values    ${2}
+    Import Library       lib.ExtendedExcelLibrary    Data${/}Excel${/}ExcelLibraryTest.xlsx     Sheet1    WITH NAME   VariableTable
+    ${a}=    VariableTable.Get Number Of Rows
+    ${b}=    VariableTable.Get Number Of Columns
+    #${temp}=             VariableTable.Get Cell Value By Column Header     ${2}    Variable Value
+    #Import Library       lib.ExtendedExcelLibrary    /Data/Excel/ExcelLibraryTest2.xls     Sheet1    WITH NAME   VariableTable2
+    #${temp}=             VariableTable2.Get Cell Value By Column Header    ${2}    Variable Value
+    #${temp}=             VariableTable.Get Cell Value By Column Header     ${3}    Variable Value
+    #${temp}=             VariableTable2.Get Cell Value By Column Header    ${3}    Variable Value
+    #${temp}=             VariableTable.Get Cell Value By Column Header     ${4}    Variable Value
+    #${temp}=             VariableTable2.Get Cell Value By Column Header    ${4}    Variable Value
+    #${temp}=             VariableTable.Get Cell Value By Column Header     ${5}    Variable Value
+    #${temp}=             VariableTable2.Get Cell Value By Column Header    ${5}    Variable Value
+    #${temp}=             VariableTable.Get Cell Value By Column Header     ${6}    Variable Value
+    #${temp}=             VariableTable2.Get Cell Value By Column Header    ${6}    Variable Value
+    #@{scalar}=           VariableTable2.Get Row Values    ${2}
+    @{scalar}=           VariableTable.Get Row Values    ${1}
     @{scalar}=           VariableTable.Get Row Values    ${2}
+    @{scalar}=           VariableTable.Get Row Values    ${3}
+    #@{scalar}=           VariableTable.get Sheet Values
+
+    #:FOR    ${var}    IN    @{scalar}
+    #\       LOG     ${var}
+
+    ${headerIndex}=      VariableTable.Get Column Header Index    Variable Name
+    ${headerIndex2}=      VariableTable.Get Column Header Index    Variable Value
+    ${value2}=          VariableTable.Get Cell Value By Column Header    ${2}    Variable Value
+
     @{scalar}=           VariableTable.get Sheet Values
 
-    :FOR    ${var}    IN    @{scalar}
-    \       LOG     ${var}
+    #:FOR    ${var}    IN    @{scalar}
+    #\       LOG     ${var}
 
-
-
-
-
-
+    # VariableTable.Save Excel File    temp.xls
+    VariableTable.Set Cell Value    ${2}    Variable Value     Vu
+    ${newValue}=    VariableTable.Get Cell Value By Column Header    ${2}    Variable Value
+    VariableTable.Save Excel File

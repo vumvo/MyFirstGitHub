@@ -1,463 +1,121 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generated="20150808 16:22:21.022" generator="Robot 2.8.7 (Python 2.7.9 on win32)">
-<suite source="C:\workspace\MyFirstGitHub\Test Case\TC_InvalidLoginMustGiveErrorWithLoop.txt" id="s1" name="TC InvalidLoginMustGiveErrorWithLoop">
-<kw type="setup" name="selenium2Library.Close All Browsers">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<arguments>
-</arguments>
-<msg timestamp="20150808 16:22:21.148" level="DEBUG">Closing all browsers</msg>
-<status status="PASS" endtime="20150808 16:22:21.148" starttime="20150808 16:22:21.148"></status>
-</kw>
-<test id="s1-t1" name="Invalid Log-in Test Case">
+<robot generated="20150813 23:37:51.479" generator="Robot 2.8.7 (Python 2.7.9 on win32)">
+<suite source="C:\workspace\MyFirstGitHub\Test Case\TC_zExcelLibraryTest.txt" id="s1" name="TC zExcelLibraryTest">
+<test id="s1-t1" name="Loading all variables from excel file">
 <kw type="kw" name="BuiltIn.Import Library">
 <doc>Imports a library with the given name and optional arguments.</doc>
 <arguments>
 <arg>lib.ExtendedExcelLibrary</arg>
-<arg>/Data/Excel/InvalidLogin.xls</arg>
+<arg>Data${/}Excel${/}ExcelLibraryTest.xlsx</arg>
 <arg>Sheet1</arg>
 <arg>WITH NAME</arg>
-<arg>DataTable</arg>
+<arg>VariableTable</arg>
 </arguments>
-<status status="PASS" endtime="20150808 16:22:21.215" starttime="20150808 16:22:21.149"></status>
+<status status="PASS" endtime="20150813 23:37:51.783" starttime="20150813 23:37:51.609"></status>
 </kw>
-<kw type="kw" name="${no_rows} = DataTable.Get Row Count">
+<kw type="kw" name="${a} = VariableTable.Get Number Of Rows">
 <doc></doc>
 <arguments>
 </arguments>
-<msg timestamp="20150808 16:22:21.224" level="INFO">${no_rows} = 5</msg>
-<status status="PASS" endtime="20150808 16:22:21.224" starttime="20150808 16:22:21.215"></status>
+<msg timestamp="20150813 23:37:51.789" level="INFO">${a} = 7</msg>
+<status status="PASS" endtime="20150813 23:37:51.789" starttime="20150813 23:37:51.784"></status>
 </kw>
-<kw type="kw" name="GlobalResource.Launch Home Page">
+<kw type="kw" name="${b} = VariableTable.Get Number Of Columns">
 <doc></doc>
 <arguments>
 </arguments>
-<kw type="kw" name="${BROWSER} = BuiltIn.Get Variable Value">
-<doc>Returns variable value or `default` if the variable does not exist.</doc>
-<arguments>
-<arg>${BROWSER}</arg>
-<arg>ff</arg>
-</arguments>
-<msg timestamp="20150808 16:22:21.225" level="INFO">${BROWSER} = IE</msg>
-<status status="PASS" endtime="20150808 16:22:21.225" starttime="20150808 16:22:21.225"></status>
+<msg timestamp="20150813 23:37:51.790" level="INFO">${b} = 2</msg>
+<status status="PASS" endtime="20150813 23:37:51.790" starttime="20150813 23:37:51.790"></status>
 </kw>
-<kw type="kw" name="selenium2Library.Open Browser">
-<doc>Opens a new browser instance to given URL.</doc>
+<kw type="kw" name="@{scalar} = VariableTable.Get Row Values">
+<doc></doc>
 <arguments>
-<arg>${HOMEPAGE_URL}</arg>
-<arg>browser=${BROWSER}</arg>
-<arg>ff_profile_dir=${FF_PROFILE}</arg>
+<arg>${1}</arg>
 </arguments>
-<msg timestamp="20150808 16:22:21.226" level="INFO">Opening browser 'IE' to base url 'https://mail.yahoo.com'</msg>
-<msg timestamp="20150808 16:22:21.737" level="DEBUG">POST http://127.0.0.1:5592/session {"desiredCapabilities": {"platform": "WINDOWS", "browserName": "internet explorer", "version": "", "javascriptEnabled": true}}</msg>
-<msg timestamp="20150808 16:22:23.228" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:23.228" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/timeouts/async_script {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "ms": 5000.0}</msg>
-<msg timestamp="20150808 16:22:23.245" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:23.245" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/timeouts/implicit_wait {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "ms": 0.0}</msg>
-<msg timestamp="20150808 16:22:23.260" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:23.260" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/url {"url": "https://mail.yahoo.com", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d"}</msg>
-<msg timestamp="20150808 16:22:24.339" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:24.339" level="DEBUG">Opened browser with session id d75555e2-3e80-4d16-9791-23a461b6141d</msg>
-<status status="PASS" endtime="20150808 16:22:24.340" starttime="20150808 16:22:21.226"></status>
+<msg timestamp="20150813 23:37:51.791" level="INFO">@{scalar} = [ Variable Name | Variable Value ]</msg>
+<status status="PASS" endtime="20150813 23:37:51.790" starttime="20150813 23:37:51.790"></status>
 </kw>
-<kw type="kw" name="GlobalResource.Global Configuration">
+<kw type="kw" name="@{scalar} = VariableTable.Get Row Values">
+<doc></doc>
+<arguments>
+<arg>${2}</arg>
+</arguments>
+<msg timestamp="20150813 23:37:51.791" level="INFO">@{scalar} = [ aString | Text ]</msg>
+<status status="PASS" endtime="20150813 23:37:51.791" starttime="20150813 23:37:51.791"></status>
+</kw>
+<kw type="kw" name="@{scalar} = VariableTable.Get Row Values">
+<doc></doc>
+<arguments>
+<arg>${3}</arg>
+</arguments>
+<msg timestamp="20150813 23:37:51.792" level="INFO">@{scalar} = [ aInt | 2 ]</msg>
+<status status="PASS" endtime="20150813 23:37:51.792" starttime="20150813 23:37:51.792"></status>
+</kw>
+<kw type="kw" name="${headerIndex} = VariableTable.Get Column Header Index">
+<doc></doc>
+<arguments>
+<arg>Variable Name</arg>
+</arguments>
+<msg timestamp="20150813 23:37:51.792" level="INFO">${headerIndex} = 1</msg>
+<status status="PASS" endtime="20150813 23:37:51.792" starttime="20150813 23:37:51.792"></status>
+</kw>
+<kw type="kw" name="${headerIndex2} = VariableTable.Get Column Header Index">
+<doc></doc>
+<arguments>
+<arg>Variable Value</arg>
+</arguments>
+<msg timestamp="20150813 23:37:51.793" level="INFO">${headerIndex2} = 2</msg>
+<status status="PASS" endtime="20150813 23:37:51.793" starttime="20150813 23:37:51.793"></status>
+</kw>
+<kw type="kw" name="${value2} = VariableTable.Get Cell Value By Column Header">
+<doc></doc>
+<arguments>
+<arg>${2}</arg>
+<arg>Variable Value</arg>
+</arguments>
+<msg timestamp="20150813 23:37:51.794" level="INFO">${value2} = Text</msg>
+<status status="PASS" endtime="20150813 23:37:51.794" starttime="20150813 23:37:51.793"></status>
+</kw>
+<kw type="kw" name="@{scalar} = VariableTable.Get Sheet Values">
 <doc></doc>
 <arguments>
 </arguments>
-<kw type="kw" name="selenium2Library.Set Selenium Timeout">
-<doc>Sets the timeout in seconds used by various keywords.</doc>
+<msg timestamp="20150813 23:37:51.795" level="INFO">@{scalar} = [ [u'Variable Name', u'Variable Value'] | [u'aString', u'Text'] | [u'aInt', 2] | [u'aFloat', 3.5] | [u'aDate', datetime.datetime(2015, 8, 5, 0, 0)] | [u'anEmpty', None] | [u'aFormula', '=3+5'] ]</msg>
+<status status="PASS" endtime="20150813 23:37:51.795" starttime="20150813 23:37:51.794"></status>
+</kw>
+<kw type="kw" name="VariableTable.Set Cell Value">
+<doc></doc>
 <arguments>
-<arg>${TIMEOUT}</arg>
+<arg>${2}</arg>
+<arg>Variable Value</arg>
+<arg>Vu</arg>
 </arguments>
-<msg timestamp="20150808 16:22:24.341" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/timeouts/async_script {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "ms": 30000.0}</msg>
-<msg timestamp="20150808 16:22:24.352" level="DEBUG">Finished Request</msg>
-<status status="PASS" endtime="20150808 16:22:24.353" starttime="20150808 16:22:24.340"></status>
+<status status="PASS" endtime="20150813 23:37:51.795" starttime="20150813 23:37:51.795"></status>
 </kw>
-<kw type="kw" name="selenium2Library.Set Selenium Implicit Wait">
-<doc>Sets Selenium 2's default implicit wait in seconds and</doc>
+<kw type="kw" name="${newValue} = VariableTable.Get Cell Value By Column Header">
+<doc></doc>
 <arguments>
-<arg>${IMPLICIT_WAIT}</arg>
+<arg>${2}</arg>
+<arg>Variable Value</arg>
 </arguments>
-<msg timestamp="20150808 16:22:24.353" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/timeouts/implicit_wait {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "ms": 5000.0}</msg>
-<msg timestamp="20150808 16:22:24.364" level="DEBUG">Finished Request</msg>
-<status status="PASS" endtime="20150808 16:22:24.364" starttime="20150808 16:22:24.353"></status>
+<msg timestamp="20150813 23:37:51.796" level="INFO">${newValue} = Vu</msg>
+<status status="PASS" endtime="20150813 23:37:51.796" starttime="20150813 23:37:51.796"></status>
 </kw>
-<kw type="kw" name="${selenium_timeout} = selenium2Library.Get Selenium Timeout">
-<doc>Gets the timeout in seconds that is used by various keywords.</doc>
-<arguments>
-</arguments>
-<msg timestamp="20150808 16:22:24.365" level="INFO">${selenium_timeout} = 30 seconds</msg>
-<status status="PASS" endtime="20150808 16:22:24.365" starttime="20150808 16:22:24.365"></status>
-</kw>
-<kw type="kw" name="BuiltIn.Log">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${selenium_timeout}</arg>
-</arguments>
-<msg timestamp="20150808 16:22:24.365" level="INFO">30 seconds</msg>
-<status status="PASS" endtime="20150808 16:22:24.365" starttime="20150808 16:22:24.365"></status>
-</kw>
-<kw type="kw" name="${selenium_implicit} = selenium2Library.Get Selenium Implicit Wait">
-<doc>Gets the wait in seconds that is waited by Selenium.</doc>
-<arguments>
-</arguments>
-<msg timestamp="20150808 16:22:24.366" level="INFO">${selenium_implicit} = 5 seconds</msg>
-<status status="PASS" endtime="20150808 16:22:24.366" starttime="20150808 16:22:24.365"></status>
-</kw>
-<kw type="kw" name="BuiltIn.Log">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${selenium_implicit}</arg>
-</arguments>
-<msg timestamp="20150808 16:22:24.366" level="INFO">5 seconds</msg>
-<status status="PASS" endtime="20150808 16:22:24.366" starttime="20150808 16:22:24.366"></status>
-</kw>
-<kw type="kw" name="${selenium_speed} = selenium2Library.Get Selenium Speed">
-<doc>Gets the delay in seconds that is waited after each Selenium command.</doc>
-<arguments>
-</arguments>
-<msg timestamp="20150808 16:22:24.366" level="INFO">${selenium_speed} = 0 seconds</msg>
-<status status="PASS" endtime="20150808 16:22:24.366" starttime="20150808 16:22:24.366"></status>
-</kw>
-<kw type="kw" name="BuiltIn.Log">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${selenium_speed}</arg>
-</arguments>
-<msg timestamp="20150808 16:22:24.367" level="INFO">0 seconds</msg>
-<status status="PASS" endtime="20150808 16:22:24.367" starttime="20150808 16:22:24.367"></status>
-</kw>
-<status status="PASS" endtime="20150808 16:22:24.367" starttime="20150808 16:22:24.340"></status>
-</kw>
-<kw type="kw" name="selenium2Library.Maximize Browser Window">
-<doc>Maximizes current browser window.</doc>
-<arguments>
-</arguments>
-<msg timestamp="20150808 16:22:24.368" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/window/current/maximize {"windowHandle": "current", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d"}</msg>
-<msg timestamp="20150808 16:22:24.379" level="DEBUG">Finished Request</msg>
-<status status="PASS" endtime="20150808 16:22:24.379" starttime="20150808 16:22:24.367"></status>
-</kw>
-<status status="PASS" endtime="20150808 16:22:24.379" starttime="20150808 16:22:21.224"></status>
-</kw>
-<kw type="for" name="${index} IN RANGE [ 2 | ${no_rows} ]">
+<kw type="kw" name="VariableTable.Save Excel File">
 <doc></doc>
 <arguments>
 </arguments>
-<kw type="foritem" name="${index} = 2">
-<doc></doc>
-<arguments>
-</arguments>
-<kw type="kw" name="BuiltIn.Log">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${index}</arg>
-</arguments>
-<msg timestamp="20150808 16:22:24.380" level="INFO">2</msg>
-<status status="PASS" endtime="20150808 16:22:24.380" starttime="20150808 16:22:24.380"></status>
-</kw>
-<kw type="kw" name="lib.General.Set Variable With Name From Datatable">
-<doc></doc>
-<arguments>
-<arg>DataTable</arg>
-<arg>${index}</arg>
-</arguments>
-<msg timestamp="20150808 16:22:24.381" level="INFO">${username}=minhvu42@yahoo.com</msg>
-<msg timestamp="20150808 16:22:24.382" level="INFO">${username} = minhvu42@yahoo.com</msg>
-<msg timestamp="20150808 16:22:24.382" level="INFO">${password}=gachipchip</msg>
-<msg timestamp="20150808 16:22:24.383" level="INFO">${password} = gachipchip</msg>
-<msg timestamp="20150808 16:22:24.383" level="INFO">${is_remember}=0</msg>
-<msg timestamp="20150808 16:22:24.383" level="INFO">${is_remember} = 0</msg>
-<msg timestamp="20150808 16:22:24.383" level="INFO">${error_message}=Invalid ID or password.
-Please try again using your full Yahoo ID.</msg>
-<msg timestamp="20150808 16:22:24.384" level="INFO">${error_message} = Invalid ID or password.
-Please try again using your full Yahoo ID.</msg>
-<status status="PASS" endtime="20150808 16:22:24.384" starttime="20150808 16:22:24.380"></status>
-</kw>
-<kw type="kw" name="pages.Login.Login With Invalid Credential">
-<doc></doc>
-<arguments>
-<arg>${username}</arg>
-<arg>${password}</arg>
-<arg>${is_remember}</arg>
-<arg>${error_message}</arg>
-</arguments>
-<msg timestamp="20150808 16:22:24.385" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/window_handles {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d"}</msg>
-<msg timestamp="20150808 16:22:24.396" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:24.396" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:24.397" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//*[(@id='username' or @name='username')]"}</msg>
-<msg timestamp="20150808 16:22:24.458" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:24.458" level="INFO">Wait until element is displayed....</msg>
-<msg timestamp="20150808 16:22:24.458" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:24.459" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/aca92bf4-2bf8-488c-a38f-efac822169e3/displayed {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "aca92bf4-2bf8-488c-a38f-efac822169e3"}</msg>
-<msg timestamp="20150808 16:22:24.490" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:24.491" level="INFO">Finish waiting</msg>
-<msg timestamp="20150808 16:22:24.491" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:24.491" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//*[(@id='username' or @name='username')]"}</msg>
-<msg timestamp="20150808 16:22:24.533" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:24.533" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/aca92bf4-2bf8-488c-a38f-efac822169e3/clear {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "aca92bf4-2bf8-488c-a38f-efac822169e3"}</msg>
-<msg timestamp="20150808 16:22:24.603" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:24.604" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/aca92bf4-2bf8-488c-a38f-efac822169e3/value {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "aca92bf4-2bf8-488c-a38f-efac822169e3", "value": ["m", "i", "n", "h", "v", "u", "4", "2", "@", "y", "a", "h", "o", "o", ".", "c", "o", "m"]}</msg>
-<msg timestamp="20150808 16:22:24.907" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:24.907" level="INFO">Typing password into text field 'passwd'</msg>
-<msg timestamp="20150808 16:22:24.907" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:24.907" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//*[(@id='passwd' or @name='passwd')]"}</msg>
-<msg timestamp="20150808 16:22:24.948" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:24.949" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/22dfb178-9466-4e07-89b5-d1fd67595eba/clear {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "22dfb178-9466-4e07-89b5-d1fd67595eba"}</msg>
-<msg timestamp="20150808 16:22:25.027" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:25.028" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/22dfb178-9466-4e07-89b5-d1fd67595eba/value {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "22dfb178-9466-4e07-89b5-d1fd67595eba", "value": ["g", "a", "c", "h", "i", "p", "c", "h", "i", "p"]}</msg>
-<msg timestamp="20150808 16:22:25.159" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:25.159" level="INFO">Unselecting checkbox 'persistent'.</msg>
-<msg timestamp="20150808 16:22:25.159" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:25.160" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/url {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d"}</msg>
-<msg timestamp="20150808 16:22:25.171" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:25.172" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//input[(@id='persistent' or @name='persistent' or @value='persistent' or @src='persistent' or @src='https://login.yahoo.com/?.src=ym&amp;.intl=us&amp;.lang=en-US&amp;.done=https%3a//persistent')]"}</msg>
-<msg timestamp="20150808 16:22:25.203" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:25.204" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/3e99bf21-740b-4267-8472-16c5dbde90ca/selected {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "3e99bf21-740b-4267-8472-16c5dbde90ca"}</msg>
-<msg timestamp="20150808 16:22:25.225" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:25.225" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/3e99bf21-740b-4267-8472-16c5dbde90ca/click {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "3e99bf21-740b-4267-8472-16c5dbde90ca"}</msg>
-<msg timestamp="20150808 16:22:25.403" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:25.403" level="INFO">Submitting form 'mbr-login-form'.</msg>
-<msg timestamp="20150808 16:22:25.403" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:25.403" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//form[(@id='mbr-login-form' or @name='mbr-login-form')]"}</msg>
-<msg timestamp="20150808 16:22:25.455" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:25.456" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/f87a16b4-17a8-4936-8e1d-ad70d47e8aaf/submit {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "f87a16b4-17a8-4936-8e1d-ad70d47e8aaf"}</msg>
-<msg timestamp="20150808 16:22:25.555" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:25.556" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:25.556" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//*[(@id='mbr-login-error' or @name='mbr-login-error')]"}</msg>
-<msg timestamp="20150808 16:22:25.608" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:25.609" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/f4b5b466-f896-4f14-8b58-d8e82128c9ce/displayed {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "f4b5b466-f896-4f14-8b58-d8e82128c9ce"}</msg>
-<msg timestamp="20150808 16:22:25.651" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:25.851" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:25.851" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//*[(@id='mbr-login-error' or @name='mbr-login-error')]"}</msg>
-<msg timestamp="20150808 16:22:25.911" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:25.911" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/f4b5b466-f896-4f14-8b58-d8e82128c9ce/displayed {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "f4b5b466-f896-4f14-8b58-d8e82128c9ce"}</msg>
-<msg timestamp="20150808 16:22:25.963" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:25.963" level="INFO">Verifying element 'mbr-login-error' contains exactly text 'Invalid ID or password.
-Please try again using your full Yahoo ID.'.</msg>
-<msg timestamp="20150808 16:22:25.963" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:25.963" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//*[(@id='mbr-login-error' or @name='mbr-login-error')]"}</msg>
-<msg timestamp="20150808 16:22:26.024" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:26.025" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/f4b5b466-f896-4f14-8b58-d8e82128c9ce/text {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "f4b5b466-f896-4f14-8b58-d8e82128c9ce"}</msg>
-<msg timestamp="20150808 16:22:26.105" level="DEBUG">Finished Request</msg>
-<status status="PASS" endtime="20150808 16:22:26.106" starttime="20150808 16:22:24.384"></status>
-</kw>
-<status status="PASS" endtime="20150808 16:22:26.106" starttime="20150808 16:22:24.380"></status>
-</kw>
-<kw type="foritem" name="${index} = 3">
-<doc></doc>
-<arguments>
-</arguments>
-<kw type="kw" name="BuiltIn.Log">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${index}</arg>
-</arguments>
-<msg timestamp="20150808 16:22:26.106" level="INFO">3</msg>
-<status status="PASS" endtime="20150808 16:22:26.106" starttime="20150808 16:22:26.106"></status>
-</kw>
-<kw type="kw" name="lib.General.Set Variable With Name From Datatable">
-<doc></doc>
-<arguments>
-<arg>DataTable</arg>
-<arg>${index}</arg>
-</arguments>
-<msg timestamp="20150808 16:22:26.107" level="INFO">${username}=minhvu4a@yahoo.com</msg>
-<msg timestamp="20150808 16:22:26.107" level="INFO">${username} = minhvu4a@yahoo.com</msg>
-<msg timestamp="20150808 16:22:26.107" level="INFO">${password}=chipchipga</msg>
-<msg timestamp="20150808 16:22:26.107" level="INFO">${password} = chipchipga</msg>
-<msg timestamp="20150808 16:22:26.107" level="INFO">${is_remember}=0</msg>
-<msg timestamp="20150808 16:22:26.107" level="INFO">${is_remember} = 0</msg>
-<msg timestamp="20150808 16:22:26.107" level="INFO">${error_message}=Invalid ID or password.
-Please try again using your full Yahoo ID.</msg>
-<msg timestamp="20150808 16:22:26.107" level="INFO">${error_message} = Invalid ID or password.
-Please try again using your full Yahoo ID.</msg>
-<status status="PASS" endtime="20150808 16:22:26.107" starttime="20150808 16:22:26.106"></status>
-</kw>
-<kw type="kw" name="pages.Login.Login With Invalid Credential">
-<doc></doc>
-<arguments>
-<arg>${username}</arg>
-<arg>${password}</arg>
-<arg>${is_remember}</arg>
-<arg>${error_message}</arg>
-</arguments>
-<msg timestamp="20150808 16:22:26.108" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/window_handles {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d"}</msg>
-<msg timestamp="20150808 16:22:26.119" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:26.119" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:26.120" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//*[(@id='username' or @name='username')]"}</msg>
-<msg timestamp="20150808 16:22:26.172" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:26.172" level="INFO">Wait until element is displayed....</msg>
-<msg timestamp="20150808 16:22:26.173" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:26.173" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/aca92bf4-2bf8-488c-a38f-efac822169e3/displayed {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "aca92bf4-2bf8-488c-a38f-efac822169e3"}</msg>
-<msg timestamp="20150808 16:22:26.238" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:26.238" level="INFO">Finish waiting</msg>
-<msg timestamp="20150808 16:22:26.238" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:26.238" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//*[(@id='username' or @name='username')]"}</msg>
-<msg timestamp="20150808 16:22:26.301" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:26.301" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/aca92bf4-2bf8-488c-a38f-efac822169e3/clear {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "aca92bf4-2bf8-488c-a38f-efac822169e3"}</msg>
-<msg timestamp="20150808 16:22:26.426" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:26.426" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/aca92bf4-2bf8-488c-a38f-efac822169e3/value {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "aca92bf4-2bf8-488c-a38f-efac822169e3", "value": ["m", "i", "n", "h", "v", "u", "4", "a", "@", "y", "a", "h", "o", "o", ".", "c", "o", "m"]}</msg>
-<msg timestamp="20150808 16:22:26.882" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:26.882" level="INFO">Typing password into text field 'passwd'</msg>
-<msg timestamp="20150808 16:22:26.882" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:26.882" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//*[(@id='passwd' or @name='passwd')]"}</msg>
-<msg timestamp="20150808 16:22:26.935" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:26.936" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/22dfb178-9466-4e07-89b5-d1fd67595eba/clear {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "22dfb178-9466-4e07-89b5-d1fd67595eba"}</msg>
-<msg timestamp="20150808 16:22:27.055" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:27.055" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/22dfb178-9466-4e07-89b5-d1fd67595eba/value {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "22dfb178-9466-4e07-89b5-d1fd67595eba", "value": ["c", "h", "i", "p", "c", "h", "i", "p", "g", "a"]}</msg>
-<msg timestamp="20150808 16:22:27.276" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:27.276" level="INFO">Unselecting checkbox 'persistent'.</msg>
-<msg timestamp="20150808 16:22:27.276" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:27.276" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/url {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d"}</msg>
-<msg timestamp="20150808 16:22:27.291" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:27.291" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//input[(@id='persistent' or @name='persistent' or @value='persistent' or @src='persistent' or @src='https://login.yahoo.com/?.src=ym&amp;.intl=us&amp;.lang=en-US&amp;.done=https%3a//persistent')]"}</msg>
-<msg timestamp="20150808 16:22:27.354" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:27.354" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/3e99bf21-740b-4267-8472-16c5dbde90ca/selected {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "3e99bf21-740b-4267-8472-16c5dbde90ca"}</msg>
-<msg timestamp="20150808 16:22:27.385" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:27.385" level="INFO">Submitting form 'mbr-login-form'.</msg>
-<msg timestamp="20150808 16:22:27.385" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:27.385" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//form[(@id='mbr-login-form' or @name='mbr-login-form')]"}</msg>
-<msg timestamp="20150808 16:22:27.432" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:27.432" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/f87a16b4-17a8-4936-8e1d-ad70d47e8aaf/submit {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "f87a16b4-17a8-4936-8e1d-ad70d47e8aaf"}</msg>
-<msg timestamp="20150808 16:22:27.525" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:27.525" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:27.525" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//*[(@id='mbr-login-error' or @name='mbr-login-error')]"}</msg>
-<msg timestamp="20150808 16:22:27.572" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:27.572" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/f4b5b466-f896-4f14-8b58-d8e82128c9ce/displayed {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "f4b5b466-f896-4f14-8b58-d8e82128c9ce"}</msg>
-<msg timestamp="20150808 16:22:27.619" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:27.819" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:27.819" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//*[(@id='mbr-login-error' or @name='mbr-login-error')]"}</msg>
-<msg timestamp="20150808 16:22:27.892" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:27.893" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/f4b5b466-f896-4f14-8b58-d8e82128c9ce/displayed {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "f4b5b466-f896-4f14-8b58-d8e82128c9ce"}</msg>
-<msg timestamp="20150808 16:22:27.944" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:27.944" level="INFO">Verifying element 'mbr-login-error' contains exactly text 'Invalid ID or password.
-Please try again using your full Yahoo ID.'.</msg>
-<msg timestamp="20150808 16:22:27.944" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:27.945" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//*[(@id='mbr-login-error' or @name='mbr-login-error')]"}</msg>
-<msg timestamp="20150808 16:22:28.006" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:28.007" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/f4b5b466-f896-4f14-8b58-d8e82128c9ce/text {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "f4b5b466-f896-4f14-8b58-d8e82128c9ce"}</msg>
-<msg timestamp="20150808 16:22:28.065" level="DEBUG">Finished Request</msg>
-<status status="PASS" endtime="20150808 16:22:28.066" starttime="20150808 16:22:26.107"></status>
-</kw>
-<status status="PASS" endtime="20150808 16:22:28.066" starttime="20150808 16:22:26.106"></status>
-</kw>
-<kw type="foritem" name="${index} = 4">
-<doc></doc>
-<arguments>
-</arguments>
-<kw type="kw" name="BuiltIn.Log">
-<doc>Logs the given message with the given level.</doc>
-<arguments>
-<arg>${index}</arg>
-</arguments>
-<msg timestamp="20150808 16:22:28.067" level="INFO">4</msg>
-<status status="PASS" endtime="20150808 16:22:28.067" starttime="20150808 16:22:28.066"></status>
-</kw>
-<kw type="kw" name="lib.General.Set Variable With Name From Datatable">
-<doc></doc>
-<arguments>
-<arg>DataTable</arg>
-<arg>${index}</arg>
-</arguments>
-<msg timestamp="20150808 16:22:28.067" level="INFO">${username}=minhvu42@yahoo.com</msg>
-<msg timestamp="20150808 16:22:28.068" level="INFO">${username} = minhvu42@yahoo.com</msg>
-<msg timestamp="20150808 16:22:28.068" level="INFO">${password}=chipchipga</msg>
-<msg timestamp="20150808 16:22:28.068" level="INFO">${password} = chipchipga</msg>
-<msg timestamp="20150808 16:22:28.068" level="INFO">${is_remember}=0</msg>
-<msg timestamp="20150808 16:22:28.068" level="INFO">${is_remember} = 0</msg>
-<msg timestamp="20150808 16:22:28.068" level="INFO">${error_message}=Invalid ID or password.
-Please try again using your full Yahoo ID.</msg>
-<msg timestamp="20150808 16:22:28.068" level="INFO">${error_message} = Invalid ID or password.
-Please try again using your full Yahoo ID.</msg>
-<status status="PASS" endtime="20150808 16:22:28.068" starttime="20150808 16:22:28.067"></status>
-</kw>
-<kw type="kw" name="pages.Login.Login With Invalid Credential">
-<doc></doc>
-<arguments>
-<arg>${username}</arg>
-<arg>${password}</arg>
-<arg>${is_remember}</arg>
-<arg>${error_message}</arg>
-</arguments>
-<msg timestamp="20150808 16:22:28.068" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/window_handles {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d"}</msg>
-<msg timestamp="20150808 16:22:28.083" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:28.083" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:28.083" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//*[(@id='username' or @name='username')]"}</msg>
-<msg timestamp="20150808 16:22:28.136" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:28.136" level="INFO">Wait until element is displayed....</msg>
-<msg timestamp="20150808 16:22:28.136" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:28.137" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/aca92bf4-2bf8-488c-a38f-efac822169e3/displayed {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "aca92bf4-2bf8-488c-a38f-efac822169e3"}</msg>
-<msg timestamp="20150808 16:22:28.187" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:28.187" level="INFO">Finish waiting</msg>
-<msg timestamp="20150808 16:22:28.188" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:28.188" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//*[(@id='username' or @name='username')]"}</msg>
-<msg timestamp="20150808 16:22:28.239" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:28.239" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/aca92bf4-2bf8-488c-a38f-efac822169e3/clear {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "aca92bf4-2bf8-488c-a38f-efac822169e3"}</msg>
-<msg timestamp="20150808 16:22:28.351" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:28.351" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/aca92bf4-2bf8-488c-a38f-efac822169e3/value {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "aca92bf4-2bf8-488c-a38f-efac822169e3", "value": ["m", "i", "n", "h", "v", "u", "4", "2", "@", "y", "a", "h", "o", "o", ".", "c", "o", "m"]}</msg>
-<msg timestamp="20150808 16:22:28.865" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:28.865" level="INFO">Typing password into text field 'passwd'</msg>
-<msg timestamp="20150808 16:22:28.865" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:28.866" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//*[(@id='passwd' or @name='passwd')]"}</msg>
-<msg timestamp="20150808 16:22:28.928" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:28.929" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/22dfb178-9466-4e07-89b5-d1fd67595eba/clear {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "22dfb178-9466-4e07-89b5-d1fd67595eba"}</msg>
-<msg timestamp="20150808 16:22:29.036" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:29.037" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/22dfb178-9466-4e07-89b5-d1fd67595eba/value {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "22dfb178-9466-4e07-89b5-d1fd67595eba", "value": ["c", "h", "i", "p", "c", "h", "i", "p", "g", "a"]}</msg>
-<msg timestamp="20150808 16:22:29.260" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:29.260" level="INFO">Unselecting checkbox 'persistent'.</msg>
-<msg timestamp="20150808 16:22:29.260" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:29.260" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/url {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d"}</msg>
-<msg timestamp="20150808 16:22:29.275" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:29.275" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//input[(@id='persistent' or @name='persistent' or @value='persistent' or @src='persistent' or @src='https://login.yahoo.com/?.src=ym&amp;.intl=us&amp;.lang=en-US&amp;.done=https%3a//persistent')]"}</msg>
-<msg timestamp="20150808 16:22:29.322" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:29.322" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/3e99bf21-740b-4267-8472-16c5dbde90ca/selected {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "3e99bf21-740b-4267-8472-16c5dbde90ca"}</msg>
-<msg timestamp="20150808 16:22:29.369" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:29.369" level="INFO">Submitting form 'mbr-login-form'.</msg>
-<msg timestamp="20150808 16:22:29.369" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:29.369" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//form[(@id='mbr-login-form' or @name='mbr-login-form')]"}</msg>
-<msg timestamp="20150808 16:22:29.416" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:29.416" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/f87a16b4-17a8-4936-8e1d-ad70d47e8aaf/submit {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "f87a16b4-17a8-4936-8e1d-ad70d47e8aaf"}</msg>
-<msg timestamp="20150808 16:22:29.509" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:29.509" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:29.509" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//*[(@id='mbr-login-error' or @name='mbr-login-error')]"}</msg>
-<msg timestamp="20150808 16:22:29.556" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:29.556" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/f4b5b466-f896-4f14-8b58-d8e82128c9ce/displayed {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "f4b5b466-f896-4f14-8b58-d8e82128c9ce"}</msg>
-<msg timestamp="20150808 16:22:29.597" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:29.809" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:29.809" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//*[(@id='mbr-login-error' or @name='mbr-login-error')]"}</msg>
-<msg timestamp="20150808 16:22:29.882" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:29.882" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/f4b5b466-f896-4f14-8b58-d8e82128c9ce/displayed {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "f4b5b466-f896-4f14-8b58-d8e82128c9ce"}</msg>
-<msg timestamp="20150808 16:22:29.940" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:29.941" level="INFO">Verifying element 'mbr-login-error' contains exactly text 'Invalid ID or password.
-Please try again using your full Yahoo ID.'.</msg>
-<msg timestamp="20150808 16:22:29.941" level="INFO">Using override _element_find method</msg>
-<msg timestamp="20150808 16:22:29.941" level="DEBUG">POST http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/elements {"using": "xpath", "sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "value": "//*[(@id='mbr-login-error' or @name='mbr-login-error')]"}</msg>
-<msg timestamp="20150808 16:22:30.002" level="DEBUG">Finished Request</msg>
-<msg timestamp="20150808 16:22:30.003" level="DEBUG">GET http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d/element/f4b5b466-f896-4f14-8b58-d8e82128c9ce/text {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d", "id": "f4b5b466-f896-4f14-8b58-d8e82128c9ce"}</msg>
-<msg timestamp="20150808 16:22:30.064" level="DEBUG">Finished Request</msg>
-<status status="PASS" endtime="20150808 16:22:30.065" starttime="20150808 16:22:28.068"></status>
-</kw>
-<status status="PASS" endtime="20150808 16:22:30.065" starttime="20150808 16:22:28.066"></status>
-</kw>
-<status status="PASS" endtime="20150808 16:22:30.065" starttime="20150808 16:22:24.380"></status>
+<status status="PASS" endtime="20150813 23:37:51.806" starttime="20150813 23:37:51.796"></status>
 </kw>
 <doc></doc>
 <tags>
 </tags>
-<status status="PASS" endtime="20150808 16:22:30.065" critical="yes" starttime="20150808 16:22:21.149"></status>
+<status status="PASS" endtime="20150813 23:37:51.806" critical="yes" starttime="20150813 23:37:51.608"></status>
 </test>
-<kw type="teardown" name="selenium2Library.Close Browser">
-<doc>Closes the current browser.</doc>
-<arguments>
-</arguments>
-<msg timestamp="20150808 16:22:30.067" level="DEBUG">Closing browser with session id d75555e2-3e80-4d16-9791-23a461b6141d</msg>
-<msg timestamp="20150808 16:22:30.067" level="DEBUG">DELETE http://127.0.0.1:5592/session/d75555e2-3e80-4d16-9791-23a461b6141d {"sessionId": "d75555e2-3e80-4d16-9791-23a461b6141d"}</msg>
-<msg timestamp="20150808 16:22:30.125" level="DEBUG">Finished Request</msg>
-<status status="PASS" endtime="20150808 16:22:32.135" starttime="20150808 16:22:30.066"></status>
-</kw>
 <doc></doc>
 <metadata>
 </metadata>
-<status status="PASS" endtime="20150808 16:22:32.135" starttime="20150808 16:22:21.022"></status>
+<status status="PASS" endtime="20150813 23:37:51.808" starttime="20150813 23:37:51.480"></status>
 </suite>
 <statistics>
 <total>
@@ -467,7 +125,7 @@ Please try again using your full Yahoo ID.'.</msg>
 <tag>
 </tag>
 <suite>
-<stat fail="0" pass="1" id="s1" name="TC InvalidLoginMustGiveErrorWithLoop">TC InvalidLoginMustGiveErrorWithLoop</stat>
+<stat fail="0" pass="1" id="s1" name="TC zExcelLibraryTest">TC zExcelLibraryTest</stat>
 </suite>
 </statistics>
 <errors>

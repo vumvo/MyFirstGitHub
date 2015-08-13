@@ -5,64 +5,71 @@ from lib import General
 from os import path
 import os
 from robot.api import logger
+from operator import itemgetter
+from datetime import datetime, timedelta
+from xlrd import open_workbook, cellname, xldate_as_tuple, \
+    XL_CELL_NUMBER, XL_CELL_DATE, XL_CELL_TEXT, XL_CELL_BOOLEAN, \
+    XL_CELL_ERROR, XL_CELL_BLANK, XL_CELL_EMPTY, error_text_from_code
+from xlwt import easyxf, Workbook
+from xlutils.copy import copy as copy
+
+from openpyxl import *
 
 
 class ExtendedExcelLibrary(ExcelLibrary):
     ROBOT_LIBRARY_SCOPE = 'TEST SUITE'
 
-    def __init__(self, file_name, sheetname=None, useTempDir=False):
-        logger.info('Input: ' + file_name)
-        logger.info(file_name[0])
-        if file_name[0] == '/':
-            _fileName = General.get_absolute_path(file_name[1:])
+    def __init__(self, file_name, sheetname):
+        if file_name[:1] != '\\':
+            self.filePath = General.get_absolute_path(file_name[:])
         else:
-            _fileName = file_name
-        logger.info(_fileName, False, True)
+            self.filePath = file_name
+        logger.info('\n' +self.filePath, False, True)
 
-        self.wb = None
-        self.tb = None
-        self.sheetNum = None
-        self.sheetNames = None
-        self.fileName = None
-        self.sheet = None
-        if os.name is "nt":
-            self.tmpDir = "Temp"
-        else:
-            self.tmpDir = "tmp"
-
-        self.open_excel(_fileName, useTempDir)
-        if sheetname:
-            self.sheet = self.wb.sheet_by_index(self.sheetNames.index(sheetname))
+        'Loading the workbook'
+        self.sheetName = sheetname
+        self.wb = load_workbook(self.filePath, False)
+        self.sheet = self.wb.get_sheet_by_name(self.sheetName)
 
     def get_cell_value_by_column_header(self, row_index, header_name):
         column_header_index = self.get_column_header_index(header_name)
-        return self.sheet.cell(row_index - 1, column_header_index - 1)
+        return self.sheet.cell(row=row_index, column=column_header_index).value
 
     def get_column_header_index(self, header_name):
-        for col_index in range(self.sheet.ncols):
-            value = self.sheet.cell(0, col_index).value
+        for col_index in range(1, self.sheet.max_column+1):
+            value = self.sheet.cell(row=1, column=col_index).value
+            logger.console(str(value))
             if str(value) == header_name:
-                return col_index + 1
+                return col_index
 
-    def get_row_values(self, row, includeEmptyCells=True):
+    def get_number_of_rows(self):
+        return self.sheet.max_row
+
+    def get_number_of_columns(self):
+        return self.sheet.max_column
+
+    def get_row_values(self, row):
         row_values = []
-        for col_index in range(self.sheet.ncols):
-            value = self.sheet.cell(int(row - 1), col_index).value
+        for col_index in range(1, self.sheet.max_column+1):
+            value = self.sheet.cell(row=row, column=col_index).value
             row_values.append(value)
         return row_values
 
-    def get_sheet_values(self, includeEmptyCells=True):
+    def get_sheet_values(self):
         sheet_values = []
-        for row_index in range(self.sheet.nrows):
+        for row_index in range(1, self.sheet.max_row+1):
             row_values = []
-            for col_index in range(self.sheet.ncols):
-                value = self.sheet.cell(row_index, col_index).value
+            for col_index in range(1, self.sheet.max_column+1):
+                value = self.sheet.cell(row=row_index, column=col_index).value
                 row_values.append(value)
             sheet_values.append(row_values)
         return sheet_values
 
-    def get_row_count(self):
-        return self.sheet.nrows
+    def set_cell_value(self, row_index, header_name, value):
+        column_index = self.get_column_header_index(header_name)
+        logger.console(str(row_index) + ' ' + str(column_index) +'=' + str(value))
+        _cell = self.sheet.cell(row=row_index, column=column_index)
+        _cell.value = value
 
-    def get_column_count(self):
-        return self.sheet.ncols
+    def save_excel_file(self):
+        self.wb.save(self.filePath)
